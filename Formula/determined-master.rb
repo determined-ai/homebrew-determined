@@ -5,15 +5,15 @@
 class DeterminedMaster < Formula
   desc ""
   homepage "https://github.com/determined-ai/determined"
-  version "0.19.9-dev0"
+  version "0.19.11"
   license "Apache-2.0"
 
   depends_on "postgresql@14"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/determined-ai/determined/releases/download/0.19.9-dev0/determined-master_0.19.9-dev0_darwin_arm64.tar.gz"
-      sha256 "f814bf03b060b245dbf25babb72c4da601ecb98dd62e24928947f23b86b26452"
+      url "https://github.com/determined-ai/determined/releases/download/0.19.11/determined-master_0.19.11_darwin_arm64.tar.gz"
+      sha256 "095ec729360f99851ce1b709e3bf826dc4dcae1e1dd0ca6d67cf04f1785d0414"
 
       def install
         bin.install "determined-master"
@@ -30,7 +30,7 @@ class DeterminedMaster < Formula
           s.gsub! "  host_path: /tmp", "  host_path: #{var}/determined/data"
         end
         Pathname("etc/determined/master.yaml").append_lines <<~EOS
-          root: #{pkgshare}
+          root: #{opt_pkgshare}
           cache:
             cache_dir: #{var}/cache/determined
         EOS
@@ -38,8 +38,8 @@ class DeterminedMaster < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.19.9-dev0/determined-master_0.19.9-dev0_darwin_amd64.tar.gz"
-      sha256 "3e4ff4ed39691a973d7989a15406f045c098bb2832a45c6166144cd3e5e7c6c8"
+      url "https://github.com/determined-ai/determined/releases/download/0.19.11/determined-master_0.19.11_darwin_amd64.tar.gz"
+      sha256 "afc29ad08f5a940f9a5676bc4cc643c4262a7579f70eec2bc5e4bddb6822e1e8"
 
       def install
         bin.install "determined-master"
@@ -56,7 +56,7 @@ class DeterminedMaster < Formula
           s.gsub! "  host_path: /tmp", "  host_path: #{var}/determined/data"
         end
         Pathname("etc/determined/master.yaml").append_lines <<~EOS
-          root: #{pkgshare}
+          root: #{opt_pkgshare}
           cache:
             cache_dir: #{var}/cache/determined
         EOS
@@ -67,8 +67,8 @@ class DeterminedMaster < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/determined-ai/determined/releases/download/0.19.9-dev0/determined-master_0.19.9-dev0_linux_arm64.tar.gz"
-      sha256 "e1d0ede74b6b083ebb138e2186ab7500a7c7aa7a5048a676fe29ee4897a3958a"
+      url "https://github.com/determined-ai/determined/releases/download/0.19.11/determined-master_0.19.11_linux_arm64.tar.gz"
+      sha256 "f2c440debc892aa8934d45c73e895762fa5930ea71286d25c3ab455618bb449d"
 
       def install
         bin.install "determined-master"
@@ -85,7 +85,7 @@ class DeterminedMaster < Formula
           s.gsub! "  host_path: /tmp", "  host_path: #{var}/determined/data"
         end
         Pathname("etc/determined/master.yaml").append_lines <<~EOS
-          root: #{pkgshare}
+          root: #{opt_pkgshare}
           cache:
             cache_dir: #{var}/cache/determined
         EOS
@@ -93,8 +93,8 @@ class DeterminedMaster < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.19.9-dev0/determined-master_0.19.9-dev0_linux_amd64.tar.gz"
-      sha256 "72f7a4dd47acb0fce84def11d343199776d49e6c291de17813accda3b0317dcd"
+      url "https://github.com/determined-ai/determined/releases/download/0.19.11/determined-master_0.19.11_linux_amd64.tar.gz"
+      sha256 "1a14e322f9b96c627d5ebd49d582ac8ea81b96086076212d9c2c740b7f003ea1"
 
       def install
         bin.install "determined-master"
@@ -111,7 +111,7 @@ class DeterminedMaster < Formula
           s.gsub! "  host_path: /tmp", "  host_path: #{var}/determined/data"
         end
         Pathname("etc/determined/master.yaml").append_lines <<~EOS
-          root: #{pkgshare}
+          root: #{opt_pkgshare}
           cache:
             cache_dir: #{var}/cache/determined
         EOS
@@ -130,6 +130,8 @@ class DeterminedMaster < Formula
         createdb determined
 
       Checkpoints are stored in #{var}/determined/data by default.
+      Make sure to configure it as a shared path for Docker for Mac in
+      Docker -> Preferences... -> Resources -> File Sharing.
     EOS
   end
 
