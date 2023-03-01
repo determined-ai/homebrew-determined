@@ -5,15 +5,15 @@
 class DeterminedMaster < Formula
   desc ""
   homepage "https://github.com/determined-ai/determined"
-  version "0.20.0"
+  version "0.20.0-ee"
   license "Apache-2.0"
 
   depends_on "postgresql@14"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/determined-ai/determined/releases/download/0.20.0/determined-master_0.20.0_darwin_arm64.tar.gz"
-      sha256 "aa07dec5d3fc15b02dce6446bce18248a63f21c983c5a04d7511a84db4944580"
+      url "https://github.com/determined-ai/determined/releases/download/0.20.0-ee/hpe-mlde-master_0.20.0-ee_darwin_arm64.tar.gz"
+      sha256 "f30f280ac52eb1deac4a440db452e7087dadbb046a5b8c7a4c1e1fdbd212809d"
 
       def install
         bin.install "determined-master"
@@ -38,8 +38,8 @@ class DeterminedMaster < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.20.0/determined-master_0.20.0_darwin_amd64.tar.gz"
-      sha256 "81c460b6da84d21bd3d4ac40ef4c10684c4bffd903d3fb2ed19a9732112817df"
+      url "https://github.com/determined-ai/determined/releases/download/0.20.0-ee/hpe-mlde-master_0.20.0-ee_darwin_amd64.tar.gz"
+      sha256 "2c017000fe2908a58c0600fcca7972e6cda0b39e0fd46fce7c73e750594048b7"
 
       def install
         bin.install "determined-master"
@@ -67,8 +67,8 @@ class DeterminedMaster < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/determined-ai/determined/releases/download/0.20.0/determined-master_0.20.0_linux_arm64.tar.gz"
-      sha256 "517050fbec3e81c766615adf37f77d3dd04aa5cdce4a331f50312640cf60cf11"
+      url "https://github.com/determined-ai/determined/releases/download/0.20.0-ee/hpe-mlde-master_0.20.0-ee_linux_arm64.tar.gz"
+      sha256 "cabe8edebb8e14f3849caaa6c487663af3506dc8929ebda5d9f62cc2f737752e"
 
       def install
         bin.install "determined-master"
@@ -93,8 +93,8 @@ class DeterminedMaster < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.20.0/determined-master_0.20.0_linux_amd64.tar.gz"
-      sha256 "3c0bdffe1d4b609fa98978721bc431269a528890b05451c3831daca29f257a9e"
+      url "https://github.com/determined-ai/determined/releases/download/0.20.0-ee/hpe-mlde-master_0.20.0-ee_linux_amd64.tar.gz"
+      sha256 "c28ae1d52bdb2c3b9cb5f8ea9962a39f5c17869259b54b2b71c1e5959fda8fbc"
 
       def install
         bin.install "determined-master"
