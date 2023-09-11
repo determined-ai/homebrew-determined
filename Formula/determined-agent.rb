@@ -5,13 +5,13 @@
 class DeterminedAgent < Formula
   desc ""
   homepage "https://github.com/determined-ai/determined"
-  version "0.25.0"
+  version "0.25.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/determined-ai/determined/releases/download/0.25.0/determined-agent_0.25.0_darwin_arm64.tar.gz"
-      sha256 "303c2a6b83e88ffb69bef8f111b3e417213cb9321f8f736085a38d688ea39182"
+      url "https://github.com/determined-ai/determined/releases/download/0.25.1/determined-agent_0.25.1_darwin_arm64.tar.gz"
+      sha256 "af24313fd0abc44e5f6a70d10c0dd98732f9b9c469f49cf45528c28336815fb2"
 
       def install
         bin.install "determined-agent"
@@ -34,8 +34,8 @@ class DeterminedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.25.0/determined-agent_0.25.0_darwin_amd64.tar.gz"
-      sha256 "376e642add536ba416552f877f44a7fc2483215a34ec70cd189a33acb245be66"
+      url "https://github.com/determined-ai/determined/releases/download/0.25.1/determined-agent_0.25.1_darwin_amd64.tar.gz"
+      sha256 "0609f057587dd4862eedc2af5e3e442e9c03016d52b25d5ee2da00226192daf3"
 
       def install
         bin.install "determined-agent"
@@ -60,9 +60,9 @@ class DeterminedAgent < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.25.0/determined-agent_0.25.0_linux_amd64.tar.gz"
-      sha256 "8d77c0ea76a73b4413ff049f532a62143a6df353b7b903c72023ce257c684702"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/determined-ai/determined/releases/download/0.25.1/determined-agent_0.25.1_linux_arm64.tar.gz"
+      sha256 "90f3eb9429cf84fb0d3c298c7338efcf68802e9940415cc8cc75ce0eb363315d"
 
       def install
         bin.install "determined-agent"
@@ -84,9 +84,9 @@ class DeterminedAgent < Formula
         etc.install "etc/determined/agent.yaml" => "determined/agent.yaml"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/determined-ai/determined/releases/download/0.25.0/determined-agent_0.25.0_linux_arm64.tar.gz"
-      sha256 "d0b02234422ba82b052ae76996f4eb81d48d976b60b312756b8e1c4ac0ba63f3"
+    if Hardware::CPU.intel?
+      url "https://github.com/determined-ai/determined/releases/download/0.25.1/determined-agent_0.25.1_linux_amd64.tar.gz"
+      sha256 "19719b1989fb0325025ab911acb965c5193400c15c13e22fa4b02fc218008b75"
 
       def install
         bin.install "determined-agent"
