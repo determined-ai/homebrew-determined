@@ -5,15 +5,15 @@
 class DeterminedMaster < Formula
   desc ""
   homepage "https://github.com/determined-ai/determined"
-  version "0.26.6"
+  version "0.26.7"
   license "Apache-2.0"
 
   depends_on "postgresql@14"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/determined-ai/determined/releases/download/0.26.6/determined-master_0.26.6_darwin_arm64.tar.gz"
-      sha256 "a24b6ff869ef5b83f993c94a31c0a82f17090a5ad11576cee7633fefc0372ac0"
+    if Hardware::CPU.intel?
+      url "https://github.com/determined-ai/determined/releases/download/0.26.7/determined-master_0.26.7_darwin_amd64.tar.gz"
+      sha256 "c7f94797219895e2ac236d7dd78b47e1cba99e6616044c758c32602414178d62"
 
       def install
         bin.install "determined-master"
@@ -37,9 +37,9 @@ class DeterminedMaster < Formula
         etc.install "etc/determined/master.yaml" => "determined/master.yaml"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.26.6/determined-master_0.26.6_darwin_amd64.tar.gz"
-      sha256 "0b71b4edcc44bfe6d5af5a5b73a38f57ad5d662c16e5d3d6f4250037421ca6b4"
+    if Hardware::CPU.arm?
+      url "https://github.com/determined-ai/determined/releases/download/0.26.7/determined-master_0.26.7_darwin_arm64.tar.gz"
+      sha256 "3080271cc024fd705f8633241462340364ebfe68187ae1450e2b17e920bb9ac4"
 
       def install
         bin.install "determined-master"
@@ -67,8 +67,8 @@ class DeterminedMaster < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/determined-ai/determined/releases/download/0.26.6/determined-master_0.26.6_linux_arm64.tar.gz"
-      sha256 "bb26ce31f8c9a671af6718149ac9f060355040ec2125522f632e5bcf095180b8"
+      url "https://github.com/determined-ai/determined/releases/download/0.26.7/determined-master_0.26.7_linux_arm64.tar.gz"
+      sha256 "16e4e7ff82391c52e869bec517359c961e564163609dada954b86d6ca45d0d1e"
 
       def install
         bin.install "determined-master"
@@ -93,8 +93,8 @@ class DeterminedMaster < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.26.6/determined-master_0.26.6_linux_amd64.tar.gz"
-      sha256 "7ded4d0fd3ff155be6f9394db4c7fbcb1b8c79fa4ff5e9482e29acd99ede3458"
+      url "https://github.com/determined-ai/determined/releases/download/0.26.7/determined-master_0.26.7_linux_amd64.tar.gz"
+      sha256 "6a55c044531ba13aa6c351b44fa2c44caa1666bb267fd744ebaf564f3a9b64ac"
 
       def install
         bin.install "determined-master"
