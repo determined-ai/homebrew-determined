@@ -5,13 +5,13 @@
 class DeterminedAgent < Formula
   desc ""
   homepage "https://github.com/determined-ai/determined"
-  version "0.27.1"
+  version "0.28.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/determined-ai/determined/releases/download/0.27.1/determined-agent_0.27.1_darwin_arm64.tar.gz"
-      sha256 "febb195b0e78d38e08d7737d0fd530fda317a4c761fde9ab4e5afd02b85f15b6"
+      url "https://github.com/determined-ai/determined/releases/download/0.28.0/determined-agent_0.28.0_darwin_arm64.tar.gz"
+      sha256 "d94d232c6adc1c399c7d6d4af330f0dd65371b9a2c2a820b112cdba003631935"
 
       def install
         bin.install "determined-agent"
@@ -34,8 +34,8 @@ class DeterminedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.27.1/determined-agent_0.27.1_darwin_amd64.tar.gz"
-      sha256 "f0b6d481d39317c3019cebf6e0150e6d2b1a508521468a66d21d3f398178fb93"
+      url "https://github.com/determined-ai/determined/releases/download/0.28.0/determined-agent_0.28.0_darwin_amd64.tar.gz"
+      sha256 "0f7a45eb4fc2de40005d129c94f72e5d7ad2472898dd29203ac2c381103d5752"
 
       def install
         bin.install "determined-agent"
@@ -61,8 +61,8 @@ class DeterminedAgent < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/determined-ai/determined/releases/download/0.27.1/determined-agent_0.27.1_linux_arm64.tar.gz"
-      sha256 "50be6a6b7c0e0b93fa7676bea7da15d8a4e11fc2b30c994a39381b025b527729"
+      url "https://github.com/determined-ai/determined/releases/download/0.28.0/determined-agent_0.28.0_linux_arm64.tar.gz"
+      sha256 "0c0ea422b2e51b77001c137e24b07bd221ff78c172ba401bbe00e7538c21950d"
 
       def install
         bin.install "determined-agent"
@@ -85,8 +85,8 @@ class DeterminedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/determined-ai/determined/releases/download/0.27.1/determined-agent_0.27.1_linux_amd64.tar.gz"
-      sha256 "e3695bc232cf2f363d670157db6dd6c07e9e3812266caff302793681282742a5"
+      url "https://github.com/determined-ai/determined/releases/download/0.28.0/determined-agent_0.28.0_linux_amd64.tar.gz"
+      sha256 "4e36a6745ac33b08d0c8636c60617a6dcad18051404513051c25db375246d60a"
 
       def install
         bin.install "determined-agent"
